@@ -30,9 +30,9 @@ npm start
 
 ## Colaboradores
 
-- [João Silva](https://github.com/gabriel-smantovani)
-- [Maria Oliveira](https://github.com/GuilhermeTavares13)
-- [Carlos Souza](https://github.com/JoaoVitor-Fatec)
+- [gabriel-smantovani](https://github.com/gabriel-smantovani)
+- [GuilhermeTavares13](https://github.com/GuilhermeTavares13)
+- [JoaoVitor-Fatec](https://github.com/JoaoVitor-Fatec)
 - [ltozzioliveira](https://github.com/ltozzioliveira)
 - [Luis4Felipe](https://github.com/Luis4Felipe)
 - [ViniCastilho](https://github.com/ViniCastilho)
