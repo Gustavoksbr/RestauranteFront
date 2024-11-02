@@ -35,6 +35,6 @@ npm start
 - [JoaoVitor-Fatec](https://github.com/JoaoVitor-Fatec)
 - [ltozzioliveira](https://github.com/ltozzioliveira)
 - [Luis4Felipe](https://github.com/Luis4Felipe)
-- [ViniCastilho](https://github.com/ViniCastilho)
+- [victorcomitre](https://github.com/victorcomitre)
 - [Gustavoksbr](https://github.com/Gustavoksbr)
 
