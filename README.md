@@ -25,7 +25,12 @@ npm install
 Para iniciar o servidor de desenvolvimento, execute:
 
 ```bash
+npm run build
 npm start
+
+ou
+
+npm run dev
 ```
 
 ## Colaboradores
