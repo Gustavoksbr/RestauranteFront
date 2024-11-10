@@ -37,3 +37,20 @@ export const comandaStyle: CSSProperties = {
 export const comandaTextStyle: CSSProperties = {
     color: 'white',
 }
+
+export const tableStyle: CSSProperties = {
+    margin: 10,
+    width: '100%',
+    color: 'black',
+}
+
+export const tableCellStyle : CSSProperties = {
+    padding: 10,
+    borderBottom: '1px solid #2a2a2a',
+    backgroundColor: '#d9d9d9',
+    textAlign: 'center',
+}
+
+export const tableRowStyle : CSSProperties = {
+    backgroundColor: '#d9d9d9',
+}
