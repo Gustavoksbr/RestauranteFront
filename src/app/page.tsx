@@ -4,6 +4,7 @@ import { Flex} from "@chakra-ui/react"
 import { useState } from "react"
 import Header from "@/components/header"
 import ComandasBody from "@/components/comandasBody"
+import CadastroProduto from "@/components/CadastroProduto"
 
 export default function Home() {
 
@@ -15,7 +16,10 @@ export default function Home() {
             <Flex direction={"column"} height={'100vh'} width={'100vw'} bgColor={'#d9d9d9'}>
                 <Header setCurrentTab={setCurrentTable}/>
                 {currentTable === "comandas" &&
-                    <ComandasBody/>
+                    <ComandasBody />
+                }
+                {currentTable === 'produtos' &&
+                    <CadastroProduto />
                 }
             </Flex>
         </>
