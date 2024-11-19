@@ -4,6 +4,7 @@ import { Flex} from "@chakra-ui/react"
 import { useState } from "react"
 import Header from "@/components/header"
 import ComandasBody from "@/components/comandasBody"
+import MesasBody from "@/components/mesasBody"
 
 export default function Home() {
 
@@ -16,6 +17,9 @@ export default function Home() {
                 <Header setCurrentTab={setCurrentTable}/>
                 {currentTable === "comandas" &&
                     <ComandasBody/>
+                }
+                {currentTable === "mesas" &&
+                    <MesasBody/>   
                 }
             </Flex>
         </>

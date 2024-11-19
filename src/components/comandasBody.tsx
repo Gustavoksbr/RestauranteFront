@@ -7,9 +7,9 @@ import {
     tableCellStyle, tableRowStyle,
     tableStyle
 } from "@/utils/styles/comandasBodyStyle";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { SimpleGrid } from '@chakra-ui/react'
-import { For, Stack, Table } from "@chakra-ui/react"
+import { Table } from "@chakra-ui/react"
 
 const items = [
     { id: 1, nome: "Pastel", qtde: 1, unitario: "R$ 4,50" ,total: "R$ 4,50" },
@@ -17,10 +17,9 @@ const items = [
 ]
 
 export default function ComandasBody(){
-    const isHeader = (index : integer) => {
+    const isHeader = (index : number) => {
         return index == 0 ?  "Comandas" : "Comanda " + index;
     }
-    let sumQtde, sumUnitario : number = 0;
     return (
     <>
         <Flex style={containerStyle}>
