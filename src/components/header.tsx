@@ -19,7 +19,10 @@ export default function Header({setCurrentTab}:HeaderProps){
             />
             <Text color={"#d9d9d9"} fontSize={'0.9rem'}>Ajustes</Text>
         </Flex>
-        <Flex style={buttonsStyle}>
+        <Flex 
+            style={buttonsStyle}
+            onClick={() => setCurrentTab('mesas')}
+        >
             <MdOutlineTableRestaurant 
                 color="#d9d9d9" 
                 preserveAspectRatio="1"
