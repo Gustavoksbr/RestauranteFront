@@ -15,7 +15,6 @@ const items = [
     { id: 1, nome: "Pastel", qtde: 1, unitario: "R$ 4,50" ,total: "R$ 4,50" },
     { id: 2, nome: "Refrigerante", qtde: 2, unitario: "R$ 5,50" ,total: "R$ 11,00" }
 ]
-
 export default function ComandasBody(){
     const isHeader = (index : number) => {
         return index == 0 ?  "Comandas" : "Comanda " + index;
