@@ -22,10 +22,13 @@ export default function MesasBody() {
         FetchMesasList()
     },[])
 
-    console.log('mesasResponse: ', mesas)
-
-    function handleMesaClick(mesaId: number) {
+    async function HandleSetMesa(mesaId: number) {
         setMesaClicada(mesaId)
+        return
+    }
+
+    async function handleMesaClick(mesaId: number) {
+        await HandleSetMesa(mesaId)
         setShowComandaPorMesaModal(true)
     }
 
