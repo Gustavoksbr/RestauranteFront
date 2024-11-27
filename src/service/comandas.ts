@@ -6,3 +6,9 @@ export async function GetComandasPorMesa(idMesa:number|null): Promise<GetComanda
         console.log('GetComandasPorMesaFunction: ', response.data)
         return response.data
 }
+
+export async function PostComanda(mesaId: number | null) {
+    await api.post(`/mesa/${mesaId}/comanda`)
+    console.log(`Comanda criada na mesa ${mesaId}`)
+    return
+}

@@ -1,6 +1,6 @@
 'use client'
 
-import { GetComandasPorMesa } from "@/service/comandas"
+import { GetComandasPorMesa, PostComanda } from "@/service/comandas"
 import { GetComandaPorMesaResponse } from "@/service/utils/apiResponses"
 import { modalComandaPorMesaStyle, modalComandaPorMesaBodyStyle, modalComandaPorMesaHeaderStyle, headerTextContainer, headerTextStyle, closeButtonStyle, modalComadnaPorMesaContainerStyle, comandaListStyle, comandaBoxStyle, itensListStyle, internalListStyle, newComandaButton } from "@/utils/styles/modalComandaPorMesaStyle"
 import { Button, Card, Flex, Text } from "@chakra-ui/react"
@@ -19,6 +19,11 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible}: ComandaPorMe
     async function fetchComandas() {
         const comandas = await GetComandasPorMesa(mesaId)
         setComandas(comandas)
+    }
+
+    async function CreateComanda() {
+        PostComanda(mesaId)
+        fetchComandas()
     }
 
     useEffect(() => {
@@ -49,19 +54,19 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible}: ComandaPorMe
                                 style={internalListStyle}
                             >
                                 {comandas?.map((comanda, index) => (
-                                    <Flex key={index} style={comandaBoxStyle}>
-                                        <Text fontWeight={500} fontSize={'1.2rem'}>{comanda.id}</Text>
-                                    </Flex> 
+                                    <Button key={index} style={comandaBoxStyle}>
+                                        <Text fontSize={'1.2rem'}>{`Comanda ${comanda.id}`}</Text>
+                                    </Button> 
                                 ))}
 
                             </Flex>
-                            <Button style={newComandaButton}>
-                                Nova Comanda
+                            <Button style={newComandaButton} onClick={() => CreateComanda()}>
+                                <Text fontWeight={500} fontSize={'1.1rem'}>Nova Comanda</Text>
                             </Button>
                             
                         </Flex>
                         <Flex style={itensListStyle}>
-
+                                
                         </Flex>
                     </Flex>
                     
