@@ -65,7 +65,7 @@ export const internalListStyle: CSSProperties = {
     width: '100%',
     height: '89%',
     flexDirection: 'column',
-
+    overflowY: 'scroll'
 }
 
 export const newComandaButton: CSSProperties = {

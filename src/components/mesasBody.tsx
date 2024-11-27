@@ -48,7 +48,7 @@ export default function MesasBody() {
                 </SimpleGrid>
             </Flex>
             {showComandaPorMesaModal &&
-                <ComandaPorMesa mesaId={mesaClicada} setIsModalVisible={setShowComandaPorMesaModal}/>
+                <ComandaPorMesa mesaId={mesaClicada} setMesaId={setMesaClicada} setIsModalVisible={setShowComandaPorMesaModal}/>
             }
             
         </>
