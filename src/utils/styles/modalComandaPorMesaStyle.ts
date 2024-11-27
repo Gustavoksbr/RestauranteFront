@@ -63,7 +63,9 @@ export const internalListStyle: CSSProperties = {
     borderRadius: 5,
     borderWidth: 2,
     width: '100%',
-    height: '89%'
+    height: '89%',
+    flexDirection: 'column',
+
 }
 
 export const newComandaButton: CSSProperties = {
@@ -87,5 +89,9 @@ export const comandaBoxStyle: CSSProperties = {
     height: '7vh',
     backgroundColor: '#2a2a2a',
     borderRadius: 4,
-    marginTop: '3px'
+    marginTop: '3px',
+    color: 'white',
+    justifyContent: "center",
+    alignItems: 'center',
+
 }
