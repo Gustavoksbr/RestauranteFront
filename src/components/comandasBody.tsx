@@ -7,9 +7,7 @@ import {
     tableCellStyle, tableRowStyle,
     tableStyle
 } from "@/utils/styles/comandasBodyStyle";
-import { Flex, Text } from "@chakra-ui/react";
-import { SimpleGrid } from '@chakra-ui/react'
-import { Table } from "@chakra-ui/react"
+import { Flex, Text, SimpleGrid, Table } from "@chakra-ui/react"
 
 const items = [
     { id: 1, nome: "Pastel", qtde: 1, unitario: "R$ 4,50" ,total: "R$ 4,50" },
