@@ -10,9 +10,10 @@ import { useEffect, useState } from "react"
 interface ComandaPorMesaProps {
     mesaId: number | null,
     setIsModalVisible: (arg: boolean) => void,
+    setMesaId: (arg: number | null) => void,
 }
 
-export default function ComandaPorMesa({mesaId, setIsModalVisible}: ComandaPorMesaProps) {
+export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: ComandaPorMesaProps) {
 
     const [comandas, setComandas] = useState<GetComandaPorMesaResponse[]>()
 
@@ -28,7 +29,13 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible}: ComandaPorMe
 
     useEffect(() => {
         fetchComandas()
+        setMesaId(null)
     },[])
+
+    function handleFecharButton(): void {
+        setIsModalVisible(false)
+        
+    }
 
     return (
         <>
@@ -43,7 +50,7 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible}: ComandaPorMe
                             </Text>
                         </Flex>
                         
-                        <Button style={closeButtonStyle} onClick={() => setIsModalVisible(false)}>
+                        <Button style={closeButtonStyle} onClick={() => handleFecharButton()}>
                             <Text>Fechar</Text>
                         </Button>
                     </Flex>
