@@ -1,10 +1,11 @@
 'use client'
 
-import { GetComandasPorMesa, PostComanda } from "@/service/comandas"
+import { DeleteComanda, GetComandasPorMesa, PostComanda } from "@/service/comandas"
 import { GetComandaPorMesaResponse } from "@/service/utils/apiResponses"
-import { modalComandaPorMesaStyle, modalComandaPorMesaBodyStyle, modalComandaPorMesaHeaderStyle, headerTextContainer, headerTextStyle, closeButtonStyle, modalComadnaPorMesaContainerStyle, comandaListStyle, comandaBoxStyle, itensListStyle, internalListStyle, newComandaButton } from "@/utils/styles/modalComandaPorMesaStyle"
+import { modalComandaPorMesaStyle, modalComandaPorMesaBodyStyle, modalComandaPorMesaHeaderStyle, headerTextContainer, headerTextStyle, closeButtonStyle, modalComadnaPorMesaContainerStyle, comandaListStyle, comandaBoxStyle, itensListStyle, internalListStyle, newComandaButton, listItemContainer, apagarComandaButton } from "@/utils/styles/modalComandaPorMesaStyle"
 import { Button, Card, Flex, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
+import { FaTrashCan } from "react-icons/fa6";
 
 
 interface ComandaPorMesaProps {
@@ -24,6 +25,11 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: C
 
     async function CreateComanda() {
         PostComanda(mesaId)
+        fetchComandas()
+    }
+
+    async function HandleDeleteComanda(comandaId: number) {
+        DeleteComanda(comandaId)
         fetchComandas()
     }
 
@@ -64,9 +70,15 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: C
                                 style={internalListStyle}
                             >
                                 {comandas?.map((comanda, index) => (
-                                    <Button key={index} style={comandaBoxStyle}>
-                                        <Text fontSize={'1.2rem'}>{`Comanda ${comanda.id}`}</Text>
-                                    </Button> 
+                                    <Flex key={index} style={listItemContainer}>
+                                        <Button  style={comandaBoxStyle}>
+                                            <Text fontSize={'1.2rem'}>{`Comanda ${comanda.id}`}</Text>
+                                        </Button>
+                                        <Button onClick={() => HandleDeleteComanda(comanda.id)} style={apagarComandaButton}>
+                                            <FaTrashCan/>
+                                        </Button>
+                                    </Flex>
+                                    
                                 ))}
 
                             </Flex>

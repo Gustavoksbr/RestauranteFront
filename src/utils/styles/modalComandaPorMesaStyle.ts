@@ -84,8 +84,14 @@ export const itensListStyle: CSSProperties = {
     backgroundColor: 'purple'
 }
 
+export const listItemContainer: CSSProperties = {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+}
+
 export const comandaBoxStyle: CSSProperties = {
-    width: '98%',
+    width: '76%',
     height: '7vh',
     backgroundColor: '#2a2a2a',
     borderRadius: 4,
@@ -94,4 +100,15 @@ export const comandaBoxStyle: CSSProperties = {
     justifyContent: "center",
     alignItems: 'center',
 
+}
+
+export const apagarComandaButton: CSSProperties = {
+    aspectRatio: 1,
+    height: '7vh',
+    backgroundColor: '#2a2a2a',
+    borderRadius: 4,
+    marginTop: '3px',
+    color: 'white',
+    justifyContent: "center",
+    alignItems: 'center',
 }

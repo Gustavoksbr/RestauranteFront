@@ -12,3 +12,9 @@ export async function PostComanda(mesaId: number | null) {
     console.log(`Comanda criada na mesa ${mesaId}`)
     return
 }
+
+export async function DeleteComanda(comandaId: number) {
+    await api.delete(`comanda/${comandaId}`)
+    console.log(`Comanda apagada na mesa ${comandaId}`)
+    return
+}
