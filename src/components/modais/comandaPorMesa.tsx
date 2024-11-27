@@ -29,12 +29,15 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: C
 
     useEffect(() => {
         fetchComandas()
-        setMesaId(null)
     },[])
+
+    useEffect(() => {
+        fetchComandas()
+    },[comandas])
 
     function handleFecharButton(): void {
         setIsModalVisible(false)
-        
+        setMesaId(null)
     }
 
     return (
