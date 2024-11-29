@@ -14,3 +14,9 @@ export interface GetItensByComandaIdResponse {
     quantidade: number
     precoTotal: number
 }
+
+export interface GetProdutosResponse {
+    nome : string,
+    categoria : string,
+    precoUnitario: number,
+}

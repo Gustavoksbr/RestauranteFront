@@ -22,10 +22,13 @@ import {
     itensListLabelsContainer,
     itensListItemsContainer,
     itensListItem,
+    modalRightSection,
+    ButtonsContainer,
 } from "@/utils/styles/modalComandaPorMesaStyle"
 import { Button, Card, Flex, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { FaTrashCan } from "react-icons/fa6";
+import ModalSelecionarItens from "./selecionarItens"
 
 
 interface ComandaPorMesaProps {
@@ -38,6 +41,7 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: C
 
     const [comandas, setComandas] = useState<GetComandaPorMesaResponse[]>()
     const [itens, setItens] = useState<GetItensByComandaIdResponse[]>()
+    const [isModalProdutosVisible, setIsModalProdutosVisible] = useState(false)
 
     async function fetchComandas() {
         const comandas = await GetComandasPorMesa(mesaId)
@@ -109,51 +113,66 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: C
                             </Button>
                             
                         </Flex>
-                        <Flex style={itensListStyle}>
-                            <Flex style={itensListLabelsContainer}>
-                                <Flex
-                                    justifyContent={"start"}
-                                    width={'40%'}
-                                ><Text style={itensListLabels}>Descrição do produto</Text></Flex>
-                                <Flex
-                                    marginRight={2}
-                                    justifyContent={"center"}
-                                    width={'18%'}
-                                ><Text style={itensListLabels}>Quantidade</Text></Flex>
-                                <Flex
-                                    marginRight={2}
-                                    justifyContent={"center"}
-                                ><Text style={itensListLabels}>Valor Unitário</Text></Flex>
-                                <Flex
-                                    justifyContent={"center"}
-                                ><Text style={itensListLabels}>Valor Total</Text></Flex>
-                            </Flex>
-                            {itens?.map((item, index) => (
-                                <Flex key={index} style={itensListItemsContainer}>
+                        <Flex style={modalRightSection}>
+                            <Flex style={itensListStyle}>
+                                <Flex style={itensListLabelsContainer}>
                                     <Flex
                                         justifyContent={"start"}
                                         width={'40%'}
-                                    ><Text style={itensListItem}>{item.nomeProduto}</Text></Flex>
+                                    ><Text style={itensListLabels}>Descrição do produto</Text></Flex>
                                     <Flex
                                         marginRight={2}
                                         justifyContent={"center"}
                                         width={'18%'}
-                                    ><Text style={itensListItem}>{item.quantidade}</Text></Flex>
+                                    ><Text style={itensListLabels}>Quantidade</Text></Flex>
                                     <Flex
                                         marginRight={2}
                                         justifyContent={"center"}
-                                    ><Text style={itensListItem}>{item.precoUnitario}</Text></Flex>
+                                    ><Text style={itensListLabels}>Valor Unitário</Text></Flex>
                                     <Flex
                                         justifyContent={"center"}
-                                    ><Text style={itensListItem}>{item.precoTotal}</Text></Flex>
+                                    ><Text style={itensListLabels}>Valor Total</Text></Flex>
                                 </Flex>
-                            ))}
+                                {itens?.map((item, index) => (
+                                    <Flex key={index} style={itensListItemsContainer}>
+                                        <Flex
+                                            justifyContent={"start"}
+                                            width={'40%'}
+                                        ><Text style={itensListItem}>{item.nomeProduto}</Text></Flex>
+                                        <Flex
+                                            marginRight={2}
+                                            justifyContent={"center"}
+                                            width={'18%'}
+                                        ><Text style={itensListItem}>{item.quantidade}</Text></Flex>
+                                        <Flex
+                                            marginRight={2}
+                                            justifyContent={"center"}
+                                        ><Text style={itensListItem}>{item.precoUnitario}</Text></Flex>
+                                        <Flex
+                                            justifyContent={"center"}
+                                        ><Text style={itensListItem}>{item.precoTotal}</Text></Flex>
+                                    </Flex>
+                                ))}
+                            </Flex>
+                            <Flex style={ButtonsContainer}>
+                                <Button width={'30%'} onClick={() => setIsModalProdutosVisible(true)}>
+                                    Novo Item
+                                </Button>
+                                <Button width={'30%'}>
+                                    Pagar Comanda
+                                </Button>
                         </Flex>
+                        </Flex>
+                        
                     </Flex>
                     
                 </Flex>
             </Card.Body>
         </Card.Root>
+        {isModalProdutosVisible &&
+            <ModalSelecionarItens/>
+        }
+        
         </>
     )
 }

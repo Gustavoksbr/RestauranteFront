@@ -40,7 +40,7 @@ export const modalComadnaPorMesaContainerStyle: CSSProperties = {
     height: '89%',
     flexDirection: "row",
     justifyContent: 'space-evenly',
-    alignItems: "center",
+    alignItems: "start",
     paddingBottom: '5px'
 }
 
@@ -79,7 +79,7 @@ export const headerTextContainer: CSSProperties = {
 }
 
 export const itensListStyle: CSSProperties = {
-    width: '64%',
+    width: '100%',
     height: '100%',
     borderWidth: 2,
     borderColor: '#a3a3a3',
@@ -94,6 +94,23 @@ export const listItemContainer: CSSProperties = {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+}
+
+export const modalRightSection: CSSProperties = {
+    width: '64%',
+    height: '100%',
+    flexDirection: "column",
+    justifyContent: 'start',
+    alignItems: 'center',
+}
+
+export const ButtonsContainer: CSSProperties = {
+    flexDirection: 'row',
+    justifyContent: 'end',
+    columnGap: 5,
+    width: '100%',
+    marginTop: 7,
+    height: '9%'
 }
 
 export const comandaBoxStyle: CSSProperties = {
