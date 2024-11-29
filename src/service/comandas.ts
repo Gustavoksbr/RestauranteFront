@@ -1,16 +1,16 @@
 import { api } from "./api";
 import { GetComandaPorMesaResponse } from "./utils/apiResponses";
 
-let token = localStorage.getItem('token')
+const token = localStorage.getItem('token')
 
 export async function GetComandasPorMesa(idMesa:number|null): Promise<GetComandaPorMesaResponse[]> {
-        const response = await api.get(`/mesa/${idMesa}/comanda`,     
-        {
-            headers: {
-            'Authorization': `Bearer ${token}` 
-        }})
-        console.log('GetComandasPorMesaFunction: ', response.data)
-        return response.data
+    const response = await api.get(`/mesa/${idMesa}/comanda`,     
+    {
+        headers: {
+        'Authorization': `Bearer ${token}` 
+    }})
+    console.log('GetComandasPorMesaFunction: ', response.data)
+    return response.data
 }
 
 export async function PostComanda(mesaId: number | null) {
