@@ -1,8 +1,28 @@
 'use client'
 
 import { DeleteComanda, GetComandasPorMesa, PostComanda } from "@/service/comandas"
-import { GetComandaPorMesaResponse } from "@/service/utils/apiResponses"
-import { modalComandaPorMesaStyle, modalComandaPorMesaBodyStyle, modalComandaPorMesaHeaderStyle, headerTextContainer, headerTextStyle, closeButtonStyle, modalComadnaPorMesaContainerStyle, comandaListStyle, comandaBoxStyle, itensListStyle, internalListStyle, newComandaButton, listItemContainer, apagarComandaButton } from "@/utils/styles/modalComandaPorMesaStyle"
+import { getItensByComandaId } from "@/service/itens"
+import { GetComandaPorMesaResponse, GetItensByComandaIdResponse } from "@/service/utils/apiResponses"
+import { 
+    modalComandaPorMesaStyle,
+    modalComandaPorMesaBodyStyle,
+    modalComandaPorMesaHeaderStyle,
+    headerTextContainer,
+    headerTextStyle,
+    closeButtonStyle,
+    modalComadnaPorMesaContainerStyle,
+    comandaListStyle,
+    comandaBoxStyle,
+    itensListStyle,
+    internalListStyle,
+    newComandaButton,
+    listItemContainer,
+    apagarComandaButton,
+    itensListLabels,
+    itensListLabelsContainer,
+    itensListItemsContainer,
+    itensListItem,
+} from "@/utils/styles/modalComandaPorMesaStyle"
 import { Button, Card, Flex, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { FaTrashCan } from "react-icons/fa6";
@@ -17,10 +37,16 @@ interface ComandaPorMesaProps {
 export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: ComandaPorMesaProps) {
 
     const [comandas, setComandas] = useState<GetComandaPorMesaResponse[]>()
+    const [itens, setItens] = useState<GetItensByComandaIdResponse[]>()
 
     async function fetchComandas() {
         const comandas = await GetComandasPorMesa(mesaId)
         setComandas(comandas)
+    }
+
+    async function fetchItensByComanda(comandaId: number) {
+        const itens = await getItensByComandaId(comandaId)
+        setItens(itens)
     }
 
     async function CreateComanda() {
@@ -36,10 +62,6 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: C
     useEffect(() => {
         fetchComandas()
     },[])
-
-    useEffect(() => {
-        fetchComandas()
-    },[comandas])
 
     function handleFecharButton(): void {
         setIsModalVisible(false)
@@ -71,7 +93,7 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: C
                             >
                                 {comandas?.map((comanda, index) => (
                                     <Flex key={index} style={listItemContainer}>
-                                        <Button  style={comandaBoxStyle}>
+                                        <Button  style={comandaBoxStyle} onClick={() => fetchItensByComanda(comanda.id)}>
                                             <Text fontSize={'1.2rem'}>{`Comanda ${comanda.id}`}</Text>
                                         </Button>
                                         <Button onClick={() => HandleDeleteComanda(comanda.id)} style={apagarComandaButton}>
@@ -88,7 +110,44 @@ export default function ComandaPorMesa({mesaId, setIsModalVisible, setMesaId}: C
                             
                         </Flex>
                         <Flex style={itensListStyle}>
-                                
+                            <Flex style={itensListLabelsContainer}>
+                                <Flex
+                                    justifyContent={"start"}
+                                    width={'40%'}
+                                ><Text style={itensListLabels}>Descrição do produto</Text></Flex>
+                                <Flex
+                                    marginRight={2}
+                                    justifyContent={"center"}
+                                    width={'18%'}
+                                ><Text style={itensListLabels}>Quantidade</Text></Flex>
+                                <Flex
+                                    marginRight={2}
+                                    justifyContent={"center"}
+                                ><Text style={itensListLabels}>Valor Unitário</Text></Flex>
+                                <Flex
+                                    justifyContent={"center"}
+                                ><Text style={itensListLabels}>Valor Total</Text></Flex>
+                            </Flex>
+                            {itens?.map((item, index) => (
+                                <Flex key={index} style={itensListItemsContainer}>
+                                    <Flex
+                                        justifyContent={"start"}
+                                        width={'40%'}
+                                    ><Text style={itensListItem}>{item.nomeProduto}</Text></Flex>
+                                    <Flex
+                                        marginRight={2}
+                                        justifyContent={"center"}
+                                        width={'18%'}
+                                    ><Text style={itensListItem}>{item.quantidade}</Text></Flex>
+                                    <Flex
+                                        marginRight={2}
+                                        justifyContent={"center"}
+                                    ><Text style={itensListItem}>{item.precoUnitario}</Text></Flex>
+                                    <Flex
+                                        justifyContent={"center"}
+                                    ><Text style={itensListItem}>{item.precoTotal}</Text></Flex>
+                                </Flex>
+                            ))}
                         </Flex>
                     </Flex>
                     

@@ -81,7 +81,13 @@ export const headerTextContainer: CSSProperties = {
 export const itensListStyle: CSSProperties = {
     width: '64%',
     height: '100%',
-    backgroundColor: 'purple'
+    borderWidth: 2,
+    borderColor: '#a3a3a3',
+    borderRadius: 5,
+    paddingLeft: 2,
+    paddingRight: 2,
+    flexDirection: "column",
+    alignItems: "center",
 }
 
 export const listItemContainer: CSSProperties = {
@@ -100,6 +106,33 @@ export const comandaBoxStyle: CSSProperties = {
     justifyContent: "center",
     alignItems: 'center',
 
+}
+
+export const itensListLabelsContainer: CSSProperties = {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '7%',
+    width: '100%',
+    borderBottomWidth: 2,
+    borderBottomColor: '#3a3a3a'
+}
+
+export const itensListItemsContainer: CSSProperties = {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '7%',
+    width: '100%',
+}
+
+export const itensListLabels: CSSProperties = {
+    fontSize: '0.9rem',
+    fontWeight: 600
+}
+
+export const itensListItem: CSSProperties = {
+    fontSize: '0.9rem',
 }
 
 export const apagarComandaButton: CSSProperties = {
