@@ -3,6 +3,7 @@ import { Flex, Box, Text } from "@chakra-ui/react";
 import { IoIosPaper } from "react-icons/io";
 import { MdOutlineTableRestaurant } from "react-icons/md";
 import { PiGearBold, PiCubeBold } from "react-icons/pi";
+import Logout from "./logout";
 
 interface HeaderProps {
     setCurrentTab: (arg: string) => void
@@ -52,6 +53,9 @@ export default function Header({setCurrentTab}:HeaderProps){
             />
             <Text color={"#d9d9d9"} fontSize={'0.9rem'}>Produtos</Text>
         </Flex>
+        <Flex style={buttonsStyle}>
+                <Logout />
+            </Flex>
         <Box flex={1} height={'100%'} bgColor={"#2a2a2a"}/>
     </Flex>
     )
