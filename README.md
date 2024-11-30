@@ -1,5 +1,9 @@
 # RestauranteFront
 
+- em desenvolvimento
+
+## Descrição
+
 Este é o projeto frontend de um restaurante, desenvolvido em React.js.
 
 Ele faz requisições para o repositório [RestauranteBack](https://github.com/Gustavoksbr/RestauranteBack), desenvolvido em Java Spring.
